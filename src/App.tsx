@@ -17,6 +17,7 @@ function App() {
   useEffect(() => {
     fakeApi()
       .then((pokemons) => {
+        console.log("Pokemons are fetched successfully!");
         setPokemons(pokemons);
       })
       .catch((error) => {
