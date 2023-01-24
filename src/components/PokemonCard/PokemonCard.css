@@ -1,0 +1,7 @@
+.pokemon-card {
+  list-style: none;
+  border: 1px solid blue;
+  width: 250px;
+  padding: 10px;
+  border-radius: 10px;
+}
