@@ -1,11 +1,19 @@
-import { FC } from "react";
+import { FC, useState } from "react";
 import Pokemon, { PokemonTypes } from "../../types/Pokemon";
+import { PokemonDetails } from "../PokemonDetails";
 import "./PokemonCard.css";
 
 interface PokemonCardProps {
   pokemon: Pokemon;
 }
+
 const PokemonCard: FC<PokemonCardProps> = ({ pokemon }) => {
+  const [isshown, changeshow] = useState(false);
+
+  const handleShowDetailsBtnClick = () => {
+    changeshow(!isshown);
+  };
+
   return (
     <div className="card col-2">
       <img
@@ -21,19 +29,11 @@ const PokemonCard: FC<PokemonCardProps> = ({ pokemon }) => {
       <div className="card-body text-center">
         {/* <li>id:{pokemon.id}</li> */}
         <h4 className="card-title">{pokemon.name}</h4>
-        <ul className="card-text list-unstyled">
-          <li>Color:{pokemon.color}</li>
-          <li>Power:{pokemon.power}</li>
-          <li className="my-2 mx-auto text-center">
-            {pokemon.types.map((currPokemonType) => {
-              return (
-                <span className="badge bg-secondary mx-1 bg-info">
-                  {PokemonTypes[currPokemonType]}
-                </span>
-              );
-            })}
-          </li>
-        </ul>
+        <button onClick={handleShowDetailsBtnClick} className="btn btn-info">
+          {" "}
+          showdetail
+        </button>
+        {isshown ? <PokemonDetails pokemon={pokemon} /> : null}
       </div>
     </div>
   );
