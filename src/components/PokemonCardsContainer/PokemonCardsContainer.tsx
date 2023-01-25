@@ -11,7 +11,7 @@ const PokemonCardsContainer: FC<PokemonCardsContainerProps> = ({
   pokemons,
 }) => {
   return (
-    <div className="container grid gap-3 row mx-auto my-5">
+    <div className="container grid gap-3 row mx-auto my-5 row-col-lg-4 row-col-md-2">
       {pokemons.map((currPokemon, idx) => (
         <PokemonCard pokemon={currPokemon} key={idx} />
       ))}
