@@ -22,8 +22,8 @@ export enum PokemonTypes {
 export default interface Pokemon {
   id: number;
   name: string;
-  color: string;
-  power: number;
+  height: number;
+  weight: number;
   types: PokemonTypes[];
   imageUrl?: string;
 }

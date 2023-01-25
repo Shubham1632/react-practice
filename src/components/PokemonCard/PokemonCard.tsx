@@ -2,20 +2,21 @@ import { FC, useState } from "react";
 import Pokemon, { PokemonTypes } from "../../types/Pokemon";
 import { PokemonDetails } from "../PokemonDetails";
 import "./PokemonCard.css";
+import { Link } from "react-router-dom";
 
 interface PokemonCardProps {
   pokemon: Pokemon;
 }
 
 const PokemonCard: FC<PokemonCardProps> = ({ pokemon }) => {
-  const [isshown, changeshow] = useState(false);
+  // const [isshown, changeshow] = useState(false);
 
-  const handleShowDetailsBtnClick = () => {
-    changeshow(!isshown);
-  };
+  // const handleShowDetailsBtnClick = () => {
+  //   changeshow(!isshown);
+  // };
 
   return (
-    <div className="card col-2">
+    <div className="card col-xl-2 col-lg-3  col-md-3 col-sm-5 shadow ">
       <img
         src={
           pokemon.imageUrl ||
@@ -29,11 +30,10 @@ const PokemonCard: FC<PokemonCardProps> = ({ pokemon }) => {
       <div className="card-body text-center">
         {/* <li>id:{pokemon.id}</li> */}
         <h4 className="card-title">{pokemon.name}</h4>
-        <button onClick={handleShowDetailsBtnClick} className="btn btn-info">
-          {" "}
-          showdetail
-        </button>
-        {isshown ? <PokemonDetails pokemon={pokemon} /> : null}
+        <Link to={`/details/${pokemon.id}`}>
+          <button className="btn btn-info">show Detail</button>
+        </Link>
+        {/* {isshown ? <PokemonDetails pokemon={pokemon} /> : null} */}
       </div>
     </div>
   );

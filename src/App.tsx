@@ -1,28 +1,23 @@
-import { error } from "console";
-import { useState, useEffect } from "react";
 import "./App.css";
-import PokemonCard from "./components/PokemonCard/PokemonCard";
+import { useState, useEffect } from "react";
 import PokemonCardsContainer from "./components/PokemonCardsContainer/PokemonCardsContainer";
-import { PokemonDetails } from "./components/PokemonDetails";
-import { fakeApi } from "./PokemonApi";
-import { pokemons } from "./pokemons";
+import { fetchPokemon } from "./PokemonApi";
 import Pokemon from "./types/Pokemon";
 
 function App() {
-  const [selectedPokemonIdx, setSelectedPokemonIdx] = useState(-1);
   const [pokemons, setPokemons] = useState<Pokemon[]>([]);
-  const showpokemondetailsbtnhandler = () => {
-    setSelectedPokemonIdx(selectedPokemonIdx + 1);
+
+  const fetchPokemons = async () => {
+    try {
+      const response = await fetchPokemon();
+      setPokemons(response);
+    } catch (error) {
+      console.log(error);
+    }
   };
+
   useEffect(() => {
-    fakeApi()
-      .then((pokemons) => {
-        console.log("Pokemons are fetched successfully!");
-        setPokemons(pokemons);
-      })
-      .catch((error) => {
-        console.error(error);
-      });
+    fetchPokemons();
   }, []);
 
   return (
@@ -32,10 +27,6 @@ function App() {
       ) : (
         <div>Loading Pokemons</div>
       )}
-      <button onClick={showpokemondetailsbtnhandler}>Change pokemon</button>
-      {pokemons[selectedPokemonIdx] ? (
-        <PokemonDetails pokemon={pokemons[selectedPokemonIdx]} />
-      ) : null}
     </>
   );
 }
