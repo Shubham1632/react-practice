@@ -15,13 +15,8 @@ const router = createBrowserRouter([
         path: "",
         element: <App />,
       },
-    ],
-  },
-  {
-    path: "/details",
-    children: [
       {
-        path: ":nameorId",
+        path: "details/:nameorid",
         element: <PokemonDetails />,
       },
     ],

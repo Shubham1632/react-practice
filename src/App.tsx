@@ -2,6 +2,7 @@ import { error } from "console";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "./App.css";
+import Navbar from "./components/NavBar/Navbar";
 import PokemonCard from "./components/PokemonCard/PokemonCard";
 import PokemonCardsContainer from "./components/PokemonCardsContainer/PokemonCardsContainer";
 import { PokemonDetails } from "./components/PokemonDetails";
@@ -28,6 +29,7 @@ function App() {
   return (
     <>
       <div className="bg-secondary p-3">
+        <Navbar />
         {pokemons.length ? (
           <PokemonCardsContainer pokemons={pokemons}></PokemonCardsContainer>
         ) : (

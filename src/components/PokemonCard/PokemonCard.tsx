@@ -29,11 +29,11 @@ const PokemonCard: FC<PokemonCardProps> = ({ pokemon }) => {
           width="150"
         />
         <div className="card-body text-center">
-          <button className="bg-info rounded pd-md border-info p-1">
+          <button className="bg-secondary rounded pd-md border-secondary p-1">
             <Link
-              to={`/details/${pokemon.name}`}
-              state={pokemon}
-              className="text-secondary"
+              to={`/details/${pokemon.id}`}
+              // state={pokemon}
+              className="text-light text-unstyled"
             >
               {pokemon.name}
             </Link>

@@ -60,9 +60,30 @@ export const fakeApi = async (): Promise<Pokemon[]> => {
         id: index + 1,
         height: 0,
         weight: 0,
-        types: [],
+        types: ["air", "fire"],
       };
     }
   );
   return pokemons;
+};
+
+export const PokemonApifetch = async (
+  nameorid: string | undefined
+): Promise<Pokemon> => {
+  const { data } = await axios.get(
+    "https://pokeapi.co/api/v2/pokemon/" + nameorid
+  );
+
+  const typeOfPockemon: string[] = data.types.map((instance: any) => {
+    return instance.type.name;
+  });
+  const pokemon: Pokemon = {
+    name: data.name,
+    id: data.id,
+    height: data.height,
+    weight: data.weight,
+    types: typeOfPockemon,
+  };
+
+  return pokemon;
 };
