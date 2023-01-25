@@ -1,7 +1,6 @@
 import { error } from "console";
 import { useState, useEffect } from "react";
 import "./App.css";
-import Navbar from "./components/NavBar/Navbar";
 import PokemonCard from "./components/PokemonCard/PokemonCard";
 import PokemonCardsContainer from "./components/PokemonCardsContainer/PokemonCardsContainer";
 import { PokemonDetails } from "./components/PokemonDetails";
@@ -15,30 +14,18 @@ function App() {
   const showpokemondetailsbtnhandler = () => {
     setSelectedPokemonIdx(selectedPokemonIdx + 1);
   };
-
-  const fetchpokenonawait = async () => {
-    try {
-      const result = await fakeApi();
-      setPokemons(result);
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
   useEffect(() => {
-    // fakeApi()
-    //   .then((pokemons) => {
-    //     setPokemons(pokemons);
-    //   })
-    //   .catch((error) => {
-    //     console.error(error);
-    //   });
-    fetchpokenonawait();
+    fakeApi()
+      .then((pokemons) => {
+        setPokemons(pokemons);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
   }, []);
 
   return (
     <>
-      <Navbar></Navbar>
       {pokemons.length ? (
         <PokemonCardsContainer pokemons={pokemons}></PokemonCardsContainer>
       ) : (
