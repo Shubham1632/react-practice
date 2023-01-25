@@ -27,17 +27,17 @@ function App() {
 
   return (
     <>
-      {pokemons.length ? (
-        <PokemonCardsContainer pokemons={pokemons}></PokemonCardsContainer>
-      ) : (
-        <div>Loading Pokemons</div>
-      )}
-      <button onClick={showpokemondetailsbtnhandler}>Change pokemon</button>
+      <div className="bg-secondary p-3">
+        {pokemons.length ? (
+          <PokemonCardsContainer pokemons={pokemons}></PokemonCardsContainer>
+        ) : (
+          <div>Loading Pokemons</div>
+        )}
+        <button onClick={showpokemondetailsbtnhandler}>Change pokemon</button>
+      </div>
       {/* {pokemons[selectedPokemonIdx] ? (
         <PokemonDetails pokemon={pokemons[selectedPokemonIdx]} />
       ) : null} */}
-
-      <Link to="/about">about</Link>
     </>
   );
 }

@@ -20,7 +20,7 @@ const PokemonCard: FC<PokemonCardProps> = ({ pokemon }) => {
       <div className="card ">
         <img
           src={
-            pokemon.imageUrl ||
+            `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemon.id}.png` ||
             "https://cdn.pixabay.com/photo/2016/07/23/13/18/pokemon-1536849_960_720.png"
           }
           alt="pokemon"
@@ -29,10 +29,15 @@ const PokemonCard: FC<PokemonCardProps> = ({ pokemon }) => {
           width="150"
         />
         <div className="card-body text-center">
-          {/* <li>id:{pokemon.id}</li> */}
-          <Link to={`/details/${pokemon.name}`} state={pokemon}>
-            {pokemon.name}
-          </Link>
+          <button className="bg-info rounded pd-md border-info p-1">
+            <Link
+              to={`/details/${pokemon.name}`}
+              state={pokemon}
+              className="text-secondary"
+            >
+              {pokemon.name}
+            </Link>
+          </button>
           {/* <button onClick={handleShowDetailsBtnClick} className="btn btn-info">
             {" "}
             showdetail
