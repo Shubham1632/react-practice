@@ -26,4 +26,5 @@ export default interface Pokemon {
   power: number;
   types: PokemonTypes[];
   imageUrl?: string;
+  about?: string;
 }

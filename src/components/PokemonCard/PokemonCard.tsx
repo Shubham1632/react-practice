@@ -1,4 +1,5 @@
 import { FC, useState } from "react";
+import { Link } from "react-router-dom";
 import Pokemon, { PokemonTypes } from "../../types/Pokemon";
 import { PokemonDetails } from "../PokemonDetails";
 import "./PokemonCard.css";
@@ -29,12 +30,15 @@ const PokemonCard: FC<PokemonCardProps> = ({ pokemon }) => {
         />
         <div className="card-body text-center">
           {/* <li>id:{pokemon.id}</li> */}
-          <h4 className="card-title">{pokemon.name}</h4>
-          <button onClick={handleShowDetailsBtnClick} className="btn btn-info">
+          <Link to={`/details/${pokemon.name}`} state={pokemon}>
+            {pokemon.name}
+          </Link>
+          {/* <button onClick={handleShowDetailsBtnClick} className="btn btn-info">
             {" "}
             showdetail
-          </button>
-          {isshown ? <PokemonDetails pokemon={pokemon} /> : null}
+          </button> */}
+          {/* {console.log(pokemon.types[1]);} */}
+          {/* {isshown ? <PokemonDetails pokemon={pokemon} /> : null} */}
         </div>
       </div>
     </div>

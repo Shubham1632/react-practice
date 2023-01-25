@@ -1,5 +1,6 @@
 import { error } from "console";
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import "./App.css";
 import PokemonCard from "./components/PokemonCard/PokemonCard";
 import PokemonCardsContainer from "./components/PokemonCardsContainer/PokemonCardsContainer";
@@ -32,9 +33,11 @@ function App() {
         <div>Loading Pokemons</div>
       )}
       <button onClick={showpokemondetailsbtnhandler}>Change pokemon</button>
-      {pokemons[selectedPokemonIdx] ? (
+      {/* {pokemons[selectedPokemonIdx] ? (
         <PokemonDetails pokemon={pokemons[selectedPokemonIdx]} />
-      ) : null}
+      ) : null} */}
+
+      <Link to="/about">about</Link>
     </>
   );
 }

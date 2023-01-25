@@ -4,15 +4,27 @@ import "./index.css";
 import App from "./App";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { PokemonDetails } from "./components/PokemonDetails";
+import AboutPokemon from "./components/AboutPokemon";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <App />,
+    children: [
+      {
+        path: "",
+        element: <App />,
+      },
+    ],
   },
   {
     path: "/details",
-    element: <h1>Details</h1>,
+    children: [
+      {
+        path: ":nameorId",
+        element: <PokemonDetails />,
+      },
+    ],
   },
 ]);
 

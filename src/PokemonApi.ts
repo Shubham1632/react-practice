@@ -50,6 +50,6 @@ export const fakeApi = (): Promise<Pokemon[]> => {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
       resolve(pokemons);
-    }, 2000);
+    }, 500);
   });
 };
