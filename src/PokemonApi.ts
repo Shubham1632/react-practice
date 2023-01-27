@@ -49,15 +49,15 @@ import { idText } from "typescript";
 //   },
 // ];
 
-export const fakeApi = async (): Promise<Pokemon[]> => {
+export const fakeApi = async (offset: number): Promise<Pokemon[]> => {
   const { data } = await axios.get(
-    "https://pokeapi.co/api/v2/pokemon/?limit=20"
+    `https://pokeapi.co/api/v2/pokemon/?limit=20&offset=${offset}`
   );
   const pokemons: Pokemon[] = data.results.map(
     (pokemon: any, index: number): Pokemon => {
       return {
         name: pokemon.name,
-        id: index + 1,
+        id: index + offset + 1,
         height: 0,
         weight: 0,
         types: ["air", "fire"],

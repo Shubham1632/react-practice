@@ -13,29 +13,56 @@ import Pokemon from "./types/Pokemon";
 function App() {
   const [selectedPokemonIdx, setSelectedPokemonIdx] = useState(-1);
   const [pokemons, setPokemons] = useState<Pokemon[]>([]);
+  const [offset, setoffset] = useState(0);
   const showpokemondetailsbtnhandler = () => {
     setSelectedPokemonIdx(selectedPokemonIdx + 1);
   };
   useEffect(() => {
-    fakeApi()
+    console.log(offset);
+    fakeApi(offset)
       .then((pokemons) => {
         setPokemons(pokemons);
+        console.log(pokemons);
       })
       .catch((error) => {
         console.error(error);
       });
-  }, []);
+  }, [offset]);
+
+  const next = () => {
+    setoffset(offset + 20);
+  };
+  const prev = () => {
+    if (offset >= 10) setoffset(offset - 20);
+  };
 
   return (
     <>
-      <div className="bg-secondary p-3">
-        <Navbar />
+      <div className="">
+        {/* <Navbar /> */}
         {pokemons.length ? (
           <PokemonCardsContainer pokemons={pokemons}></PokemonCardsContainer>
         ) : (
           <div>Loading Pokemons</div>
         )}
-        <button onClick={showpokemondetailsbtnhandler}>Change pokemon</button>
+        <div className="flex justify-center ">
+          {offset >= 10 ? (
+            <button
+              onClick={prev}
+              className="bg-blue-300 mx-5 hover:bg-blue-700 text-white font-bold px-4 rounded-md h-11 transform transition duration-400 hover:scale-110"
+            >
+              prev
+            </button>
+          ) : (
+            <></>
+          )}
+          <button
+            onClick={next}
+            className="bg-blue-300 mx-4 hover:bg-blue-700 text-white font-bold px-4 rounded-md h-11  transform transition duration-400 hover:scale-110"
+          >
+            next
+          </button>
+        </div>
       </div>
       {/* {pokemons[selectedPokemonIdx] ? (
         <PokemonDetails pokemon={pokemons[selectedPokemonIdx]} />

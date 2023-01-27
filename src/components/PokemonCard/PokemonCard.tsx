@@ -16,8 +16,8 @@ const PokemonCard: FC<PokemonCardProps> = ({ pokemon }) => {
   };
 
   return (
-    <div className="col">
-      <div className="card ">
+    <div className="">
+      <div className=" overflow-hidden transform transition duration-400 hover:scale-110 hover:bg-emerald-400 w-60 rounded shadow-lg p-10  text-center ">
         <img
           src={
             `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemon.id}.png` ||
@@ -28,12 +28,12 @@ const PokemonCard: FC<PokemonCardProps> = ({ pokemon }) => {
           height="170"
           width="150"
         />
-        <div className="card-body text-center">
-          <button className="bg-secondary rounded pd-md border-secondary p-1">
+        <div className="">
+          <button className="  overflow-hidden hover:bg-blue-200 text-slate-500 font-bold px-4 rounded-md h-8 my-4 mx-2 shadow-lg transform transition duration-400 hover:scale-110">
             <Link
               to={`/details/${pokemon.id}`}
               // state={pokemon}
-              className="text-light text-unstyled"
+              className=""
             >
               {pokemon.name}
             </Link>

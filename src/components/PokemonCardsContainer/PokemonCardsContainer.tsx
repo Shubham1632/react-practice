@@ -11,10 +11,12 @@ const PokemonCardsContainer: FC<PokemonCardsContainerProps> = ({
   pokemons,
 }) => {
   return (
-    <div className="container grid gap-3 row mx-auto my-5">
-      {pokemons.map((currPokemon, idx) => (
-        <PokemonCard pokemon={currPokemon} key={idx} />
-      ))}
+    <div>
+      <div className="grid grid-cols-1 lg:grid-cols-5 md:grid-cols-4 sm:grid-cols-2 gap-4 grid-flow-row m-8">
+        {pokemons.map((currPokemon, idx) => (
+          <PokemonCard pokemon={currPokemon} key={idx} />
+        ))}
+      </div>
     </div>
   );
 };
