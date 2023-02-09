@@ -22,7 +22,7 @@ const HomePage = () => {
         <span className="text-transparent bg-clip-text bg-gradient-to-r to-emerald-600 from-sky-700">
           Pokemon
         </span>{" "}
-        API
+        Hub
       </h1>
       <div className="flex justify-center">
         <input
