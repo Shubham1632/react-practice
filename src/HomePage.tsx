@@ -8,7 +8,7 @@ const HomePage = () => {
 
   const handleChange = () => {
     const input = document.getElementById("search") as HTMLInputElement;
-    let value = input?.value;
+    const value = input?.value;
     setMessage(value);
   };
 

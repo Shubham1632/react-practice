@@ -9,6 +9,7 @@ import { PokemonDetails } from "./components/PokemonDetails";
 import { fakeApi } from "./PokemonApi";
 import { pokemons } from "./pokemons";
 import Pokemon from "./types/Pokemon";
+import React from "react";
 
 function App() {
   const [selectedPokemonIdx, setSelectedPokemonIdx] = useState(-1);

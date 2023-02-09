@@ -1,4 +1,5 @@
 import { FC, useEffect, useState } from "react";
+import React from "react";
 import {
   Link,
   Navigate,
@@ -56,9 +57,12 @@ export const PokemonDetails = () => {
               <li className="my-2 mx-auto">
                 {" "}
                 Type:
-                {pokemon.types.map((currPokemonType: string) => {
+                {pokemon.types.map((currPokemonType: string, index) => {
                   return (
-                    <span className="inline-block bg-blue-400 rounded-full text-sm font-semibold text-white  mx-2 px-2 py-1 ">
+                    <span
+                      key={index}
+                      className="inline-block bg-blue-400 rounded-full text-sm font-semibold text-white  mx-2 px-2 py-1 "
+                    >
                       {currPokemonType}
                     </span>
                   );

@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import Pokemon, { PokemonTypes } from "../../types/Pokemon";
 import { PokemonDetails } from "../PokemonDetails";
 import "./PokemonCard.css";
+import React from "react";
 
 interface PokemonCardProps {
   pokemon: Pokemon;
