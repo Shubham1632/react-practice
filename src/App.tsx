@@ -43,7 +43,7 @@ function App() {
         {pokemons.length ? (
           <PokemonCardsContainer pokemons={pokemons}></PokemonCardsContainer>
         ) : (
-          <div>Loading Pokemons</div>
+          <div>Loading the Pokemons</div>
         )}
         <div className="flex justify-center ">
           {offset >= 10 ? (
