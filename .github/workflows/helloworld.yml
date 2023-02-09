@@ -2,7 +2,7 @@ name: linting the application
 run-name: ${{ github.actor }} is learning GitHub Actions
 on: [push]
 jobs:
-  check-bats-version:
+  checks-the-linting:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -10,4 +10,4 @@ jobs:
         with:
           node-version: '14'
       - run: echo "Linting the file"
-      - run: npm lint
+      - run: npm run lint
