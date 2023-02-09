@@ -10,4 +10,5 @@ jobs:
         with:
           node-version: '14'
       - run: echo "Linting the file"
+      - run: npm i  
       - run: npm run lint
