@@ -9,6 +9,7 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: '14'
-      - run: echo "Linting the file"
+      - run: echo "installing the dependancies"
       - run: npm i  
+      - run: echo "Linting the file"
       - run: npm run lint
