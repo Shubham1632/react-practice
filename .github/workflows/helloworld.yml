@@ -1,9 +1,15 @@
-name: learn-github-actions
+name: linting the application 
 run-name: ${{ github.actor }} is learning GitHub Actions
-on: [pull_request]
+on: [push]
 jobs:
-  check-bats-version:
+  checks-the-linting:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - run: echo "hello world"
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '14'
+      - run: echo "installing the dependancies"
+      - run: npm i  
+      - run: echo "Linting the file"
+      - run: npm run lint

@@ -2,6 +2,7 @@ import { FC } from "react";
 import Pokemon from "../../types/Pokemon";
 import PokemonCard from "../PokemonCard/PokemonCard";
 import "./PokemonCardsContainer.css";
+import React from "react";
 
 interface PokemonCardsContainerProps {
   pokemons: Pokemon[];
