@@ -38,7 +38,7 @@ const HomePage = () => {
           onClick={search}
           className="bg-blue-300 hover:bg-blue-700 text-white font-bold px-4 rounded-md h-11 mx-3"
         >
-          Search
+          Search pokemon
         </button>
       </div>
       <Outlet></Outlet>
